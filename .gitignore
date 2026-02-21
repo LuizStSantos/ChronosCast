@@ -1,0 +1,5 @@
+# Build gerado
+chronoscast-linux-*
+
+# Banco de dados local
+chronos.db
