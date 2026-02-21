@@ -56,7 +56,7 @@ Ele utiliza:
 No terminal, no projeto, execute:
 
 ```bash
-./chronoscast-linux-amd64
+./chronoscast-linux-amd64-v1.0.0
 ```
 
 ---
@@ -131,9 +131,14 @@ O terminal exibe:
 /cmd/server/main.go  
 /internal/api/  
 /internal/scheduler/  
-/internal/storage/  
-/chronos.db  
-/LICENSE  
+/internal/storage/
+/.gitignore
+/build.sh
+/go.mod
+/go.sum
+/LICENSE 
+/models.go
+/README.md
 
 ---
 
