@@ -79,7 +79,7 @@ func (api *APIContext) HandleDelete(c *gin.Context) {
 func HealthCheck(c *gin.Context) {
 	c.JSON(200, gin.H{
 		"status": "up",
-		"versão": "v1.0.0",
+		"versão": "v1.1.0",
 	})
 }
 

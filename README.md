@@ -1,11 +1,9 @@
 
 # 🛰️ CHRONOSCAST
-## Sistema de Agendamento Profissional
 
-**Autor:** Luiz Stormorwski dos Santos  
-**Versão:** 1.0.0  
-**Licença:** MIT  
-**Ambiente:** Fedora Linux / Go (Golang)
+Motor de Automação para Transmissões Profissionais
+
+O ChronosCast é um motor de agendamento e processamento de fluxos de áudio e vídeo. Ele atua como um orquestrador para o FFmpeg, permitindo programar entradas e saídas de streaming com persistência em banco de dados e precisão de cronograma.
 
 ---
 
@@ -30,15 +28,6 @@ sudo dnf install ffmpeg
 
 ---
 
-## 📦 Requisitos do Sistema
-
-- Go 1.21+
-- SQLite
-- FFmpeg (obrigatório)
-- Linux (testado em Fedora)
-
----
-
 ## 📌 1. Sobre o Projeto
 
 O **ChronosCast** é um motor de automação para transmissões de vídeo.
@@ -56,7 +45,7 @@ Ele utiliza:
 No terminal, no projeto, execute:
 
 ```bash
-./chronoscast-linux-amd64-v1.0.0
+./chronoscast-linux-amd64-v1.1.0
 ```
 
 ---
@@ -66,7 +55,9 @@ No terminal, no projeto, execute:
 ### 🔹 A) Agendar / Atualizar Transmissão
 
 **Método:** POST  
-**URL:** http://localhost:8080/agendar  
+**URL:** http://localhost:8080/agendar 
+
+Cria ou atualiza uma transmissão
 
 Exemplo de Corpo JSON:
 
@@ -88,7 +79,7 @@ Exemplo de Corpo JSON:
 **Método:** GET  
 **URL:** http://localhost:8080/agendar  
 
-Retorna todos os agendamentos salvos no banco de dados.
+Lista todos os agendamentos ativos
 
 ---
 
@@ -97,7 +88,16 @@ Retorna todos os agendamentos salvos no banco de dados.
 **Método:** DELETE  
 **URL:** http://localhost:8080/agendar/{id_da_transmissao}
 
-Remove o agendamento do banco e cancela o temporizador imediatamente.
+Remove e cancela uma transmissão
+
+---
+
+### 🔹 d) Status
+
+**Método:** GET  
+**URL:** http://localhost:8080/status
+
+Verifica o status do motor e versão
 
 ---
 
@@ -113,33 +113,45 @@ SAT – Sábado
 
 ---
 
-## ⚙️ 5. Recursos Automáticos
+## ⚙️ 5. Diferenciais Técnicos
 
-### Auto-Load
-Ao iniciar o servidor, o sistema lê o banco \`chronos.db\` e reativa automaticamente todos os agendamentos.
+### Auto-Recovery:
+Ao iniciar, o sistema lê o banco chronos.db e reativa todos os agendamentos automaticamente.
 
-### Logs de Tempo
-O terminal exibe:
-- Hora exata de início  
-- Hora exata de término  
-- Duração real da transmissão  
+### Precisão Cron:
+Gerenciamento nativo de dias da semana (SUN, MON, TUE, WED, THU, FRI, SAT).
+
+### Observabilidade:
+Logs detalhados informando duração real e status do processo FFmpeg no terminal.
+
+### Graceful Handling:
+O cancelamento de um agendamento interrompe o processo do FFmpeg de forma limpa.
 
 ---
 
 ## 📂 6. Estrutura de Arquivos
 
-/cmd/server/main.go  
-/internal/api/  
-/internal/scheduler/  
-/internal/storage/
-/.gitignore
-/build.sh
-/go.mod
-/go.sum
-/LICENSE 
-/models.go
-/README.md
-
+```
+.
+├── cmd/
+│   └── server/
+│       └── main.go
+├── internal/
+│   ├── api/
+│   │   └── handlers.go
+│   ├── models/
+│   │   └── models.go
+│   ├── scheduler/
+│   │   └── engine.go
+│   └── storage/
+│       └── sqlite.go
+├── .gitignore
+├── build.sh
+├── go.mod
+├── go.sum
+├── LICENSE
+└── README.md
+```
 ---
 
 > "Código é poesia, automação é liberdade."

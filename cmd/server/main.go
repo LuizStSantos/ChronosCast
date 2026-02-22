@@ -22,7 +22,7 @@ func main() {
 ╚██████╗██║  ██║██║  ██║╚██████╔╝██║ ╚████║╚██████╔╝███████║ ╚██████╗██║  ██║███████║   ██║   
  ╚═════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝ ╚═╝  ╚═══╝ ╚═════╝ ╚══════╝ ╚═════╝╚═╝  ╚═╝╚══════╝   ╚═╝   
 
-API de Agendamento Profissional | v1.0.0
+API de Agendamento Profissional | v1.1.0
 Desenvolvido por: Luiz Stormorwski dos Santos
 
 	`)

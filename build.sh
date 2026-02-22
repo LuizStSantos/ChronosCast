@@ -1,5 +1,5 @@
 #!/bin/bash
-VERSION="v1.0.0"
+VERSION="v1.1.0"
 NAME="chronoscast-linux-amd64"
 OUTPUT="${NAME}-${VERSION}"
 
