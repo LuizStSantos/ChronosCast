@@ -35,6 +35,7 @@ Desenvolvido por: Luiz Stormorwski dos Santos
 	engine := scheduler.NewEngine()
 
 	// 2. Cria o Contexto da API
+	gin.SetMode(gin.ReleaseMode)
 	apiCtx := &api.APIContext{
 		DB:     db,
 		Engine: engine,
