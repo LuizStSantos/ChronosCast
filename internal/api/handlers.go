@@ -76,6 +76,13 @@ func (api *APIContext) HandleDelete(c *gin.Context) {
 	c.JSON(http.StatusOK, gin.H{"status": "removido", "id": id})
 }
 
+func HealthCheck(c *gin.Context) {
+	c.JSON(200, gin.H{
+		"status": "up",
+		"versão": "v1.0.0",
+	})
+}
+
 // HandleList - Retorna a lista de todos os agendamentos ativos no banco
 func (api *APIContext) HandleList(c *gin.Context) {
 	api.Mu.Lock()

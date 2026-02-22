@@ -51,6 +51,7 @@ Desenvolvido por: Luiz Stormorwski dos Santos
 	r.GET("/agendar", apiCtx.HandleList)
 	r.POST("/agendar", apiCtx.HandlePost)
 	r.DELETE("/agendar/:id", apiCtx.HandleDelete)
+	r.GET("/status", api.HealthCheck)
 
 	r.Run(":8080")
 }
